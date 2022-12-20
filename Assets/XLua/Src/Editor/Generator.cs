@@ -1730,6 +1730,7 @@ namespace CSObjectWrapEditor
             AssetDatabase.Refresh();
         }
 #endif
+        
 
         [MenuItem("XLua/Clear Generated Code", false, 2)]
         public static void ClearAll()

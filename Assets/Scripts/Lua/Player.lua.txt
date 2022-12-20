@@ -1,0 +1,41 @@
+﻿Player={}
+Player.speed=2
+function Player:Init()
+    self.gameObject=GameObject.Find("Player")
+    if(self.gameObject==nil)then
+        local  go=ResourcesManager.LoadGameObject("Player")
+        self.gameObject=GameObject.Instantiate(go,Vector3(0,1.5,0),Quaternion.identity)
+    end
+    self.CollisionCb=self.gameObject.transform:GetComponentCollisionCb()
+    self.CollisionCb:triggerEnterEvent('+',function(collider) Player:PickUpItem(collider)  end)
+    RegisterUpdate(function() Player:Update() end)
+    
+end 
+
+
+function Player:PickUpItem(collider)
+    local iiw= collider.transform:GetComponentItemInWorld()
+    local name=tostring(iiw.itemType):split_lite(':')
+    PackPanel:AddItem(name[1],iiw.num)
+end
+function Player:Update()
+   x= Input.GetAxis("Horizontal")*self.speed*Time.deltaTime
+   z= Input.GetAxis("Vertical") *self.speed*Time.deltaTime
+    self.gameObject.transform.position=self.gameObject.transform.position+Vector3(x,0,z)
+    
+    if( Input.GetKeyDown(CS.UnityEngine.KeyCode.V))then
+        PackPanel:Save()
+    end
+    if( Input.GetKeyDown(CS.UnityEngine.KeyCode.B))then
+        if(self.openPack)then
+            PackPanel:HideMe()
+            self.openPack=false
+        else
+            PackPanel:ShowMe()
+            self.openPack=true
+        end
+        
+    end
+end
+
+return Player

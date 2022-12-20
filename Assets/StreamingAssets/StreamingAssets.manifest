@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 2169921084
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: ui.ab
+      Dependencies:
+        Dependency_0: img.ab
+        Dependency_1: mat.ab
+    Info_1:
+      Name: img.ab
+      Dependencies: {}
+    Info_2:
+      Name: lua.ab
+      Dependencies: {}
+    Info_3:
+      Name: mat.ab
+      Dependencies:
+        Dependency_0: img.ab

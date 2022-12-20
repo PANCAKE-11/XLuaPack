@@ -32,11 +32,25 @@ public class LuaStarter : MonoBehaviour
        meta.Dispose();
 
        scriptEnv.Set("self", this);
-       luaEnv.AddLoader((ref string filename) =>
+       // luaEnv.AddLoader((ref string filename) =>
+       // {
+       //     string absPath = Application.dataPath + "/Scripts/lua/" + filename + ".lua";
+       //     return System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(absPath));
+       // });
+    #if UNITY_EDITOR
+           // do something
+           luaEnv.AddLoader((ref string filename) =>
+           {
+               string absPath = Application.dataPath + "/Scripts/lua/" + filename + ".lua.txt";
+               return System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(absPath));
+           });
+    #else
+    luaEnv.AddLoader((ref string filename) =>
        {
-           string absPath = Application.dataPath + "/Scripts/lua/" + filename + ".lua";
-           return System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(absPath));
+           return System.Text.Encoding.UTF8.GetBytes(ResourcesManager.LoadLua(filename));
        });
+    #endif
+       
        luaEnv.DoString("require 'Main'", "LuaTestScript", scriptEnv);
 
        Action luaAwake = scriptEnv.Get<Action>("awake");

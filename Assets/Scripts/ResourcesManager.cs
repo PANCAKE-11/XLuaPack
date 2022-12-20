@@ -6,16 +6,57 @@
     [LuaCallCSharp]
     public static class ResourcesManager
     {
+     private   static AssetBundle uiLoadedAssetBundle;
+     private   static AssetBundle imgLoadedAssetBundle;   
+     private   static AssetBundle luaLoadedAssetBundle;   
+
+
+        static ResourcesManager()
+        {
+            #if !UNITY_EDITOR
+             uiLoadedAssetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "ui.ab"));
+             imgLoadedAssetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "img.ab"));
+             luaLoadedAssetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "lua.ab"));
+            #endif
+        }
         public static GameObject LoadGameObject(string path)
         {
-            return   Resources.Load<GameObject>(path);
+            #if UNITY_EDITOR
+                  return   Resources.Load<GameObject>("Prefabs/"+path);
+            #else
+                if (uiLoadedAssetBundle == null) {
+                    Debug.Log("Failed to load AssetBundle!");
+                    return null;
+                }
+                  var obj=  uiLoadedAssetBundle.LoadAsset<GameObject>(path);
+                  return obj;
+            #endif
+            
         }
         public static Sprite LoadSprite(string path)
         {
-           
-            return   Resources.Load<Sprite>(path);
+    #if UNITY_EDITOR
+                return Resources.Load<Sprite>("Sprites/items/"+ path);
+    #else
+            if (imgLoadedAssetBundle == null) {
+                Debug.Log("Failed to load AssetBundle!");
+                return null;
+            }
+            var obj=  imgLoadedAssetBundle.LoadAsset<Sprite>(path);
+         
+            return obj;
+#endif
         }
-
+        public static string LoadLua(string path)
+        {
+           
+            if (luaLoadedAssetBundle == null) {
+                Debug.Log("Failed to load AssetBundle!");
+                return null;
+            }
+            var obj=  luaLoadedAssetBundle.LoadAsset<TextAsset>(path+".lua.txt");
+            return obj.text;
+        }
         public static string LoadPlayerPack()
         {
             string json = "";

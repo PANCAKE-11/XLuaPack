@@ -32,6 +32,8 @@ public static class ExampleGenConfig
                 typeof(Time),
                 typeof(GameObject),
                 typeof(Component),
+                // typeof(Light),
+
                 typeof(Behaviour),
                 typeof(Transform),
                 typeof(Resources),
@@ -44,7 +46,7 @@ public static class ExampleGenConfig
                 typeof(SkinnedMeshRenderer),
                 typeof(Renderer),
                 typeof(WWW),
-                typeof(Light),
+         
                 typeof(Mathf),
                 typeof(System.Collections.Generic.List<int>),
                 typeof(Action<string>),
