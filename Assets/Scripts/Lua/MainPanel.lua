@@ -10,15 +10,12 @@ function MainPanel:Init()
     self.gameObject:SetActive(false)
     self.btn_add=(self.gameObject.transform:Find('btn_add')):GetComponentButton()
     self.btn_pack=(self.gameObject.transform:Find('btn_pack')):GetComponentButton()
-    self.btn_add.onClick:AddListener(function() self:ClickAddBtn() end )
     self.btn_pack.onClick:AddListener(function() self:ClickPackBtn() end )
     
 end
 
 
-function MainPanel:ClickAddBtn()
-    PackPanel:AddItem('拉面',1)
-end
+
 function MainPanel:ClickPackBtn()
     if not self.packOpened then
         PackPanel:ShowMe()

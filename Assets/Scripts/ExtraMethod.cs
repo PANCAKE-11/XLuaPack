@@ -29,6 +29,10 @@
         {
             return transform.GetComponentInChildren<Text>();
         }
+        public static Text GetTextComponent(this Transform transform)
+        {
+            return transform.GetComponent<Text>();
+        }
         public static Dragable GetDragableComponentInChildren(this Transform transform)
         {
             return transform.GetComponentInChildren<Dragable>();

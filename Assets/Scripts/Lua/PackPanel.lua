@@ -17,8 +17,8 @@ function PackPanel:Init()
     self.itemPrefab =ResourcesManager.LoadGameObject("Prefabs/item")
     self.save=self:Load()
     self.tipTrans=self.gameObject.transform:Find('tip')
-    self.tipTrans.parent=self.gameObject.transform.parent
-    --self.tipTrans.gameObject:SetActive(false)
+    --self.tipTrans.parent=self.gameObject.transform.parent
+    self.tipTrans.gameObject:SetActive(false)
     self:Refresh()
 end 
 
@@ -147,13 +147,15 @@ function PackPanel:OnEndDrag(eventData, transform)
     Object.Destroy(transform.gameObject)
     self:Refresh()
 end
-function PackPanel:OnPointerEnter(eventData)
-    --self.tipTrans.gameObject:SetActive(true)
-    --self.tipTrans.anchoredPosition  = MAINCAMERA:ScreenToWorldPoint(Vector3(eventData.position.x,eventData.position.y,-10))
-    --print(  self.tipTrans.anchoredPosition ,MAINCAMERA:ScreenToWorldPoint(Vector3(eventData.position.x,eventData.position.y,-10)))
+function PackPanel:OnPointerEnter(eventData,transform)
+    self.tipTrans.gameObject:SetActive(true)
+    local rect=  self.tipTrans.rect
+    local index=self:GetSlotIndex(transform.parent)
+    self.tipTrans.position  = Vector3(eventData.position.x,eventData.position.y, self.tipTrans.position.z)
+    self.tipTrans:GetTextComponent().text=self.save[index]["name"]
 end
 function PackPanel:OnPointerExit(eventData)
-    --self.tipTrans.gameObject:SetActive(false)
+    self.tipTrans.gameObject:SetActive(false)
 end
 function PackPanel:GetSlotIndex(slot)
     for i=1,self.itemNum do

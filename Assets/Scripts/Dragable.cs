@@ -10,7 +10,7 @@ using XLua;
         public event Action<PointerEventData,Transform> onDragEvent; 
         public event Action<PointerEventData,Transform> onEndDragEvent; 
 
-            public event Action<PointerEventData> onPointerEnterEvent; 
+            public event Action<PointerEventData,Transform> onPointerEnterEvent; 
             public event Action<PointerEventData> onPointerExitEvent; 
 public void OnBeginDrag(PointerEventData eventData)
         {
@@ -30,7 +30,7 @@ public void OnBeginDrag(PointerEventData eventData)
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            onPointerEnterEvent?.Invoke(eventData);
+            onPointerEnterEvent?.Invoke(eventData,transform);
         }
 
         public void OnPointerExit(PointerEventData eventData)
