@@ -1,0 +1,25 @@
+# CMake generation dependency list for this directory.
+D:/UnityProjects/LearnXlua/build/CMakeLists.txt
+D:/UnityProjects/LearnXlua/build/build64/CMakeFiles/3.25.1/CMakeCCompiler.cmake
+D:/UnityProjects/LearnXlua/build/build64/CMakeFiles/3.25.1/CMakeCXXCompiler.cmake
+D:/UnityProjects/LearnXlua/build/build64/CMakeFiles/3.25.1/CMakeRCCompiler.cmake
+D:/UnityProjects/LearnXlua/build/build64/CMakeFiles/3.25.1/CMakeSystem.cmake
+D:/UnityProjects/LearnXlua/build/lua-5.3.5/src/luaconf.h.in
+F:/CMAKE/share/cmake-3.25/Modules/CMakeCInformation.cmake
+F:/CMAKE/share/cmake-3.25/Modules/CMakeCXXInformation.cmake
+F:/CMAKE/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake
+F:/CMAKE/share/cmake-3.25/Modules/CMakeGenericSystem.cmake
+F:/CMAKE/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake
+F:/CMAKE/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake
+F:/CMAKE/share/cmake-3.25/Modules/CMakeRCInformation.cmake
+F:/CMAKE/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake
+F:/CMAKE/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake
+F:/CMAKE/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+F:/CMAKE/share/cmake-3.25/Modules/Compiler/MSVC-C.cmake
+F:/CMAKE/share/cmake-3.25/Modules/Compiler/MSVC-CXX.cmake
+F:/CMAKE/share/cmake-3.25/Modules/Compiler/MSVC.cmake
+F:/CMAKE/share/cmake-3.25/Modules/Platform/Windows-MSVC-C.cmake
+F:/CMAKE/share/cmake-3.25/Modules/Platform/Windows-MSVC-CXX.cmake
+F:/CMAKE/share/cmake-3.25/Modules/Platform/Windows-MSVC.cmake
+F:/CMAKE/share/cmake-3.25/Modules/Platform/Windows.cmake
+F:/CMAKE/share/cmake-3.25/Modules/Platform/WindowsPaths.cmake
