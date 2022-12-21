@@ -62,8 +62,9 @@ public class LuaStarter : MonoBehaviour
     }
 
     // Use this for initialization
-    void Start()
+    IEnumerator Start()
     {
+        yield return ResourcesManager.Instance.Hotfix();
        if (luaStart != null)
        {
            luaStart();

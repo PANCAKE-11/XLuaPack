@@ -17,7 +17,7 @@ MAINCAMERA=Camera.main
 Object=CS.UnityEngine.Object
 EventSystem=CS. UnityEngine.EventSystems.EventSystem
 UpdateFunc={}
-function awake()
+function start()
     PackPanel:Init()
     MainPanel:Init()
     Player:Init()
