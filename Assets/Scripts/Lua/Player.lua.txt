@@ -3,7 +3,7 @@ Player.speed=2
 function Player:Init()
     self.gameObject=GameObject.Find("Player")
     if(self.gameObject==nil)then
-        local  go=ResourcesManager.LoadGameObject("Player")
+        local  go=ResourcesManager.LoadPrefab("Player")
         self.gameObject=GameObject.Instantiate(go,Vector3(0,1.5,0),Quaternion.identity)
     end
     self.CollisionCb=self.gameObject.transform:GetComponentCollisionCb()

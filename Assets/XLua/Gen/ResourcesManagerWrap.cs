@@ -32,11 +32,12 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 6, 0, 0);
-			Utils.RegisterFunc(L, Utils.CLS_IDX, "LoadGameObject", _m_LoadGameObject_xlua_st_);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 7, 0, 0);
+			Utils.RegisterFunc(L, Utils.CLS_IDX, "LoadPrefab", _m_LoadPrefab_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "LoadSprite", _m_LoadSprite_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "LoadLua", _m_LoadLua_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "LoadPlayerPack", _m_LoadPlayerPack_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "LoadScene", _m_LoadScene_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "SavePlayerPack", _m_SavePlayerPack_xlua_st_);
             
 			
@@ -106,7 +107,7 @@ namespace XLua.CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_LoadGameObject_xlua_st_(RealStatePtr L)
+        static int _m_LoadPrefab_xlua_st_(RealStatePtr L)
         {
 		    try {
             
@@ -118,7 +119,7 @@ namespace XLua.CSObjectWrap
                 {
                     string _path = LuaAPI.lua_tostring(L, 1);
                     
-                        var gen_ret = ResourcesManager.LoadGameObject( _path );
+                        var gen_ret = ResourcesManager.LoadPrefab( _path );
                         translator.Push(L, gen_ret);
                     
                     
@@ -200,6 +201,29 @@ namespace XLua.CSObjectWrap
                     
                     
                     return 1;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_LoadScene_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+            
+            
+                
+                {
+                    
+                    ResourcesManager.LoadScene(  );
+                    
+                    
+                    
+                    return 0;
                 }
                 
             } catch(System.Exception gen_e) {
