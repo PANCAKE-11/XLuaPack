@@ -16,8 +16,8 @@ public static class CreateAssetBundles
         Debug.Log("Xlua生成代码清理完成");
         Generator.GenAll();
         Debug.Log("Xlua生成代码完成");
-        BuildAllAssetBundles_stearming();
-        Debug.Log("AB包构建完成");
+        BuildAllAssetBundles_loaclWeb();
+        Debug.Log("本地资源服务器AB包构建完成");
     }
     [MenuItem("MyBuild/streamingAssets", false, 1)]
     static void BuildAllAssetBundles_stearming()
@@ -42,5 +42,7 @@ public static class CreateAssetBundles
         BuildPipeline.BuildAssetBundles(assetBundleDirectory, 
             BuildAssetBundleOptions.None, 
             BuildTarget.StandaloneWindows);
+
+        System.IO.File.Move("S:/MyWebServer_43467/web/web", "S:/MyWebServer_43467/web/web.ab");
     }
 }

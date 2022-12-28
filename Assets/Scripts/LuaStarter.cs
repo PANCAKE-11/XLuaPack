@@ -32,24 +32,12 @@ public class LuaStarter : MonoBehaviour
        meta.Dispose();
 
        scriptEnv.Set("self", this);
-       // luaEnv.AddLoader((ref string filename) =>
-       // {
-       //     string absPath = Application.dataPath + "/Scripts/lua/" + filename + ".lua";
-       //     return System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(absPath));
-       // });
-    #if UNITY_EDITOR
-           // do something
-           luaEnv.AddLoader((ref string filename) =>
-           {
-               string absPath = Application.dataPath + "/Scripts/lua/" + filename + ".lua.txt";
-               return System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(absPath));
-           });
-    #else
+
     luaEnv.AddLoader((ref string filename) =>
        {
            return System.Text.Encoding.UTF8.GetBytes(ResourcesManager.LoadLua(filename));
        });
-    #endif
+
        
        luaEnv.DoString("require 'Main'", "LuaTestScript", scriptEnv);
 
@@ -62,9 +50,9 @@ public class LuaStarter : MonoBehaviour
     }
 
     // Use this for initialization
-    IEnumerator Start()
+    void Start()
     {
-        yield return ResourcesManager.Instance.Hotfix();
+        
        if (luaStart != null)
        {
            luaStart();

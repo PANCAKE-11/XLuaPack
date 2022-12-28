@@ -19,6 +19,7 @@ public class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour {
                 Debug.LogError(typeof(T) + " had has an instance");
             }
         }
+        DontDestroyOnLoad(gameObject);
         _instance = this as T;
         InitAwake();
     }

@@ -4,7 +4,7 @@ function PackPanel:Init()
 
     self.gameObject=GameObject.Find("PackPanel")
     if(self.gameObject==nil)then
-        local  go=ResourcesManager.LoadGameObject("PackPanel")
+        local  go=ResourcesManager.LoadPrefab("PackPanel")
         self.gameObject=GameObject.Instantiate(go,Canvas.transform)
     end
     self.gameObject:SetActive(false)
@@ -14,7 +14,7 @@ function PackPanel:Init()
     for i = 1, self.itemNum do 
         self.slots[i]=self.slotsTrans:GetChild(i-1)
     end
-    self.itemPrefab =ResourcesManager.LoadGameObject("item")
+    self.itemPrefab =ResourcesManager.LoadPrefab("item")
     self.save=self:Load()
     self.tipTrans=self.gameObject.transform:Find('tip')
     --self.tipTrans.parent=self.gameObject.transform.parent

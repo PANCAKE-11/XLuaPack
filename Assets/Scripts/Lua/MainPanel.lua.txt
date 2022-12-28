@@ -3,7 +3,7 @@
 function MainPanel:Init()
     self.gameObject=GameObject.Find("MainPanel")
     if(self.gameObject==nil)then
-        local  go=ResourcesManager.LoadGameObject("MainPanel")
+        local  go=ResourcesManager.LoadPrefab("MainPanel")
         self.gameObject=GameObject.Instantiate(go,Canvas.transform)
         
     end
