@@ -37,4 +37,9 @@
         {
             return transform.GetComponentInChildren<Dragable>();
         }
+
+        public static Slider GetSliderComponent(this GameObject obj)
+        {
+            return obj.GetComponent<Slider>();
+        }
     }

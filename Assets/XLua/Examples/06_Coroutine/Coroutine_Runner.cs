@@ -6,6 +6,7 @@ using System;
 
 namespace XLuaTest
 {
+
     public class Coroutine_Runner : MonoBehaviour
     {
     }

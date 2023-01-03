@@ -20,6 +20,10 @@ public static class ExampleGenConfig
     [LuaCallCSharp]
     public static List<Type> LuaCallCSharp = new List<Type>() {
                 typeof(System.Object),
+                // typeof(System.IO.File),
+                // typeof(System.Uri),
+                // typeof(System.IO.Path),
+                typeof(AssetBundle),
                 typeof(UnityEngine.Object),
                 typeof(Vector2),
                 typeof(Vector3),
@@ -33,7 +37,7 @@ public static class ExampleGenConfig
                 typeof(GameObject),
                 typeof(Component),
                 // typeof(Light),
-
+               
                 typeof(Behaviour),
                 typeof(Transform),
                 typeof(Resources),

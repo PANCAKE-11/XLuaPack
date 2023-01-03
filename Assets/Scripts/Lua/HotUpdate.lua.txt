@@ -1,0 +1,92 @@
+﻿
+
+unity_coroutine=require('unity_coroutine')
+UnityWebRequest=CS.UnityEngine.Networking.UnityWebRequest
+rapidjson = require('rapidjson')
+AssetBundle=CS.UnityEngine.AssetBundle
+ResourcesManager=CS.ResourcesManager
+
+function start()
+   
+    slider=(CS.UnityEngine.GameObject.Find("Slider")):GetSliderComponent()
+  unity_coroutine.start(function() 
+      coroutine.yield(hotfix())
+      coroutine.yield(CS.UnityEngine.WaitForSeconds(1))
+      ResourcesManager.LoadScene()
+  end)
+    
+end
+
+function hotfix()
+    Todownload = false
+    versionUrl_local =  CS.System.Uri( CS.System.IO.Path.Combine(CS.UnityEngine.Application.streamingAssetsPath, "version.json"))
+    versionLocalwww   = UnityWebRequest.Get(versionUrl_local)
+    coroutine.yield(versionLocalwww:SendWebRequest())
+    slider.value =1 /  7
+    if (versionLocalwww.result ~= UnityWebRequest.Result.Success) then
+        Todownload = true
+    else
+        localVersion = 0
+        if (CS.System.String.IsNullOrEmpty(versionLocalwww.downloadHandler.text)==false)then
+            local versionTable=rapidjson.decode(versionLocalwww.downloadHandler.text)
+            localVersion=versionTable['version']
+
+        end
+
+        versionUrl_remote = "http://localhost:8001/version.json";
+        versionwww_remote   = UnityWebRequest.Get(versionUrl_remote)
+        coroutine.yield(versionwww_remote:SendWebRequest())
+
+        if (versionwww_remote.result ~= UnityWebRequest.Result.Success) then
+            Todownload = false;
+        else
+             remoteVersion=rapidjson.decode(versionwww_remote.downloadHandler.text)
+            if (remoteVersion['version'] > localVersion)then
+                Todownload = true;
+            end
+
+        end
+
+    end
+    --开始下载
+    if Todownload then
+        local  url="http://localhost:8001/"
+        local main_ab="web.ab"
+        coroutine.yield(DownLoadFromRemote(url,main_ab))
+    else
+        slider.value = 1
+    end
+    AssetBundle.UnloadAllAssetBundles(true);
+
+   local  str = rapidjson.encode(remoteVersion);
+   --ResourcesManager.SaveVersion(str)
+    
+end
+    
+function DownLoadFromRemote(url,main_ab)
+
+    local    url_main = url .. main_ab;
+    local   localAbPath= CS.UnityEngine.Application.streamingAssetsPath .. "/"
+    local   mainAbwww_remote   = UnityWebRequest.Get( CS.System.Uri(url_main))
+    mainAbwww_remote.downloadHandler = CS.UnityEngine.Networking.DownloadHandlerFile(localAbPath .. main_ab)
+    coroutine.yield(mainAbwww_remote:SendWebRequest())
+    slider.value =2 /  7
+    if (mainAbwww_remote.result ~= UnityWebRequest.Result.Success)then
+        print("下载错误:"+mainAbwww_remote.error)
+    else
+        mainAB=AssetBundle.LoadFromFile(localAbPath .. main_ab );
+        _assetBundleManifest = ResourcesManager.LoadABManifest(mainAB)
+        local   strs=   _assetBundleManifest:GetAllAssetBundles()
+        for i=0,strs.Length-1 do
+            local temp_url = url .. strs[i];
+            local   tempAbwww_remote   = UnityWebRequest.Get(CS.System.Uri(temp_url));
+            tempAbwww_remote.downloadHandler =CS.UnityEngine.Networking.DownloadHandlerFile(localAbPath .. strs[i]);
+            tempAbwww_remote:SendWebRequest();
+            while (tempAbwww_remote.isDone==false) do
+                coroutine.yield(nil)
+                slider.value =slider.value+ tempAbwww_remote.downloadProgress / strs.Length + 2;
+            end
+        end
+    end
+
+end
