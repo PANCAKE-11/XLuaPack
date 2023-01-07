@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 4222764742
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: img.ab
+      Dependencies: {}
+    Info_1:
+      Name: lua.ab
+      Dependencies: {}
+    Info_2:
+      Name: mat.ab
+      Dependencies:
+        Dependency_0: img.ab
+    Info_3:
+      Name: scene.ab
+      Dependencies:
+        Dependency_0: prefab.ab
+    Info_4:
+      Name: prefab.ab
+      Dependencies:
+        Dependency_0: img.ab
+        Dependency_1: mat.ab

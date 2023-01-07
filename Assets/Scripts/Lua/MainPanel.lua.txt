@@ -1,14 +1,7 @@
-﻿  MainPanel={}
+﻿  MainPanel=Panel:new("MainPanel")
 
 function MainPanel:Init()
-    self.gameObject=GameObject.Find("MainPanel")
-    if(self.gameObject==nil)then
-        local  go=ResourcesManager.LoadPrefab("MainPanel")
-        self.gameObject=GameObject.Instantiate(go,Canvas.transform)
-        
-    end
-    self.gameObject:SetActive(false)
-    self.btn_add=(self.gameObject.transform:Find('btn_add')):GetComponentButton()
+
     self.btn_pack=(self.gameObject.transform:Find('btn_pack')):GetComponentButton()
     self.btn_pack.onClick:AddListener(function() self:ClickPackBtn() end )
     
@@ -27,10 +20,3 @@ function MainPanel:ClickPackBtn()
     
 end
 
-
-function MainPanel :ShowMe()
-    self.gameObject:SetActive(true)
-end
-function MainPanel :HideMe()
-    self.gameObject:SetActive(false)
-end

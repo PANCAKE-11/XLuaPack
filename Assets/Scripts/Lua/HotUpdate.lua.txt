@@ -10,14 +10,14 @@ function start()
    
     slider=(CS.UnityEngine.GameObject.Find("Slider")):GetSliderComponent()
   unity_coroutine.start(function() 
-      coroutine.yield(hotfix())
+      coroutine.yield(hotupdate())
       coroutine.yield(CS.UnityEngine.WaitForSeconds(1))
       ResourcesManager.LoadScene()
   end)
     
 end
 
-function hotfix()
+function hotupdate()
     Todownload = false
     versionUrl_local =  CS.System.Uri( CS.System.IO.Path.Combine(CS.UnityEngine.Application.streamingAssetsPath, "version.json"))
     versionLocalwww   = UnityWebRequest.Get(versionUrl_local)

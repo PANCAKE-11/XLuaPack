@@ -62,15 +62,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 634}
     - Class: 114
-      Script: {instanceID: 2038}
+      Script: {instanceID: 2036}
     - Class: 114
-      Script: {instanceID: 2218}
+      Script: {instanceID: 2216}
     - Class: 114
-      Script: {instanceID: 2388}
+      Script: {instanceID: 2386}
     - Class: 114
-      Script: {instanceID: 2508}
+      Script: {instanceID: 2506}
     - Class: 114
-      Script: {instanceID: 2712}
+      Script: {instanceID: 2710}
     - Class: 114
       Script: {instanceID: 2802}
     - Class: 114
@@ -141,4 +141,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/Game.unity
-  playerPath: S:/MyWebServer_43467/web/scene.ab
+  playerPath: F:/UnityProjects/LearnXlua/Assets/StreamingAssets/scene.ab

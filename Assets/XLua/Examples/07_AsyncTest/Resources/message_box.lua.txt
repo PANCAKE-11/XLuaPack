@@ -19,7 +19,7 @@ return {
 		local ret = sync_confirm(message, title)
 		return ret == true
     end;
- }
+ }   
 
 
 

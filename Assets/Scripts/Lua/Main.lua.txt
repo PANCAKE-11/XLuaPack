@@ -8,10 +8,12 @@ Vector3=CS.UnityEngine.Vector3
 rapidjson = require('rapidjson')
 Time=CS.UnityEngine.Time
 Input=CS.UnityEngine.Input
+
+require('Panel')
 PackPanel=require('PackPanel')
 MainPane=require('MainPanel')
 Player=require('Player')
-require('UtilTools')
+
 Camera=CS. UnityEngine.Camera
 MAINCAMERA=Camera.main
 Object=CS.UnityEngine.Object
@@ -33,4 +35,28 @@ end
 function RegisterUpdate(func)
     table.insert(UpdateFunc,func)
 end
+
+function string:split_lite(sep)
+    local splits = {}
+
+    if sep == nil then
+        -- return table with whole str
+        table.insert(splits, self)
+    elseif sep == "" then
+        -- return table with each single character
+        local len = #self
+        for i = 1, len do
+            table.insert(splits, self:sub(i, i))
+        end
+    else
+        -- normal split use gmatch
+        local pattern = "[^" .. sep .. "]+"
+        for str in string.gmatch(self, pattern) do
+            table.insert(splits, str)
+        end
+    end
+
+    return splits
+end
+
 

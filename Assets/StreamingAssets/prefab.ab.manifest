@@ -1,0 +1,91 @@
+ManifestFileVersion: 0
+CRC: 541017626
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3c6ea95b1f3161d58dedd35590b54f1a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 70dd4452f0e041dcb7f03835ba9a75b1
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ca567f7a74514fd987d79a9ab2e090b6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4238c2f94c464f8fa29ba3dc95eb6207, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b6702b9eb7a64059bca1cf5cda2194a6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.RectOffset
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.AnimationTriggers
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.Button/ButtonClickedEvent
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.ColorBlock
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.FontData
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.Navigation
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.SpriteState
+Assets:
+- Assets/Resources/Prefabs/PackPanel.prefab
+- Assets/Resources/Prefabs/Item.prefab
+- "Assets/Resources/Prefabs/itemInWorld \u5B9D\u77F3.prefab"
+- Assets/Resources/Prefabs/Player.prefab
+- Assets/Resources/Prefabs/itemInWorld.prefab
+- Assets/Resources/Prefabs/MainPanel.prefab
+- Assets/Resources/Prefabs/slot.prefab
+- "Assets/Resources/Prefabs/itemInWorld \u62C9\u9762.prefab"
+- "Assets/Resources/Prefabs/itemInWorld \u5377\u8F74.prefab"
+Dependencies:
+- F:/UnityProjects/LearnXlua/Assets/StreamingAssets/img.ab
+- F:/UnityProjects/LearnXlua/Assets/StreamingAssets/mat.ab

@@ -1,4 +1,4 @@
-﻿// #define NOTUSEAB
+﻿#define NOTUSEAB
  using System;
     using System.Collections;
     using System.Collections.Generic;
@@ -73,7 +73,7 @@
         {
             path = path + ".lua.txt";
            #if NOTUSEAB
-             string absPath = Application.dataPath + "/Scripts/lua/" + path + ".lua.txt";
+            string absPath = Application.dataPath + "/Scripts/lua/" + path;
              return   File.ReadAllText(absPath);
        
            #else
@@ -127,6 +127,4 @@
             sw.Close();
         }
      
-        
-       
     }

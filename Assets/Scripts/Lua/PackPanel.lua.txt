@@ -1,13 +1,8 @@
-PackPanel={}
+PackPanel=Panel:new('PackPanel')
 
 function PackPanel:Init()
 
-    self.gameObject=GameObject.Find("PackPanel")
-    if(self.gameObject==nil)then
-        local  go=ResourcesManager.LoadPrefab("PackPanel")
-        self.gameObject=GameObject.Instantiate(go,Canvas.transform)
-    end
-    self.gameObject:SetActive(false)
+   
     self.slots= {}
     self.slotsTrans=self.gameObject.transform:Find('slots')
     self.itemNum= self.slotsTrans.childCount
@@ -166,13 +161,4 @@ function PackPanel:GetSlotIndex(slot)
     return nil
 end
 
-
-
-
-function PackPanel :ShowMe()
-    self.gameObject:SetActive(true)
-end
-function PackPanel :HideMe()
-    self.gameObject:SetActive(false)
-end
 return PackPanel

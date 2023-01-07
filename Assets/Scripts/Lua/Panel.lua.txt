@@ -1,0 +1,24 @@
+﻿Panel={}
+function Panel:new(name)
+    local self = {}
+    --使用元表，并把__index赋值为person类
+    setmetatable(self,{__index = Panel})
+
+    self.gameObject=GameObject.Find(name)
+    if(self.gameObject==nil)then
+        local  go=ResourcesManager.LoadPrefab(name)
+        self.gameObject=GameObject.Instantiate(go,Canvas.transform)
+
+    end
+    self.gameObject:SetActive(false)
+    return self
+end
+function Panel :ShowMe()
+    self.gameObject:SetActive(true)
+end
+function Panel :HideMe()
+    self.gameObject:SetActive(false)
+end
+function Panel :Init()
+  
+end
